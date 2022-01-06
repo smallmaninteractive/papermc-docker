@@ -20,7 +20,7 @@ jobs:
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag cedkim/papermc-docker:$(date +%s)
     - name: Push the Docker image
       run: docker push cedkim/papermc-docker:${{ steps.get_version.outputs.VERSION }}
     
